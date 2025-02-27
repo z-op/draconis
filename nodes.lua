@@ -632,8 +632,8 @@ local function cool_crucible(pos, ingot)
 		and draconis.dragons[dragon_id].name then
 			dragon_name = draconis.dragons[dragon_id].name
 		end
-		ingot_meta:set_string("dragon_id", dragon_id)
-		ingot_meta:set_string("description", ingot_desc .. "\n(Forged by " .. dragon_name .. ")")
+		--ingot_meta:set_string("dragon_id", dragon_id)
+		--ingot_meta:set_string("description", ingot_desc .. "\n(Forged by " .. dragon_name .. ")")
 		inv:set_stack("output", 1, draconic_ingot)
 		meta:set_int("cool_perc", 0)
 	end
@@ -1074,13 +1074,13 @@ for color in pairs(draconis.colors_fire) do
 	minetest.register_alias_force("draconis:egg_fire_" .. color, "draconis:egg_fire_" .. color)
 end
 
-minetest.register_alias_force("draconis:dracolily_ice", "")
-minetest.register_alias_force("draconis:dracolily_fire", "")
+--minetest.register_alias_force("draconis:dracolily_ice", "")
+--minetest.register_alias_force("draconis:dracolily_fire", "")
 minetest.register_alias_force("draconis:growth_essence_ice", "")
 minetest.register_alias_force("draconis:growth_essence_fire", "")
-minetest.register_alias_force("draconis:blood_ice_dragon", "")
-minetest.register_alias_force("draconis:blood_fire_dragon", "")
-minetest.register_alias_force("draconis:manuscript", "")
+--minetest.register_alias_force("draconis:blood_ice_dragon", "")
+--minetest.register_alias_force("draconis:blood_fire_dragon", "")
+--minetest.register_alias_force("draconis:manuscript", "")
 
 minetest.register_alias_force("draconis:frozen_soil", "draconis:soil_frozen")
 minetest.register_alias_force("draconis:frozen_stone", "draconis:stone_frozen")

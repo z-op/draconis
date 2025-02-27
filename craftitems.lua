@@ -1051,6 +1051,7 @@ minetest.register_craft({
 	}
 })
 
+--[[
 minetest.register_craft({
 	output = "draconis:libri_draconis",
 	recipe = {
@@ -1059,7 +1060,7 @@ minetest.register_craft({
 		{"group:book", "group:unicolor_red", ""},
 	}
 })
-
+--]]
 minetest.register_craft({
 	output = "draconis:wood_planks_frozen",
 	recipe = {
@@ -1408,7 +1409,7 @@ craft_boots({
 ----------------------------------
 -- Draconic Steel Tool On-Craft --
 ----------------------------------
-
+--[[
 minetest.register_on_craft(function(itemstack, player, old_craft_grid)
 	if itemstack:get_name():find("draconic_steel") then
 		local last_id
@@ -1440,14 +1441,30 @@ minetest.register_on_craft(function(itemstack, player, old_craft_grid)
 			local meta = itemstack:get_meta()
 			local name = itemstack:get_name()
 			local desc = minetest.registered_items[name].description
-			meta:set_string("dragon_id", last_id)
+			--meta:set_string("dragon_id", last_id)
 			local dragon_name = "Unnamed Dragon"
 			if draconis.dragons[last_id]
 			and draconis.dragons[last_id].name then
 				dragon_name = draconis.dragons[last_id].name
 			end
-			meta:set_string("description", desc .. "\n(Forged by " .. dragon_name .. ")")
+			--meta:set_string("description", desc .. "\n(Forged by " .. dragon_name .. ")")
 		end
 		return itemstack
 	end
 end)
+--]]
+
+minetest.register_on_craft(function(itemstack, player, old_craft_grid)
+	if itemstack:get_name():find("draconic_steel") then
+		local last_id
+		local shatter = false
+		for _, stack in pairs(old_craft_grid) do
+			if stack:get_meta():get_string("dragon_id") ~= "" then
+			stack:clear()
+			itemstack:clear()
+			end
+		end
+		return itemstack
+	end
+end)
+
