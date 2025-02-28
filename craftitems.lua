@@ -12,7 +12,7 @@ end
 -- Get Craft Items --
 
 local ice_block = "default:ice"
-
+--[[
 minetest.register_on_mods_loaded(function()
 	if minetest.registered_items[ice_block] then return end
 	for name in pairs(minetest.registered_items) do
@@ -22,7 +22,7 @@ minetest.register_on_mods_loaded(function()
 		end
 	end
 end)
-
+--]]
 -- Local Utilities --
 
 local dragon_drops = {}

@@ -9,7 +9,7 @@ local random = math.random
 -- Get Craft Items --
 
 local steel_ingot = "default:steel_ingot"
-
+--[[
 minetest.register_on_mods_loaded(function()
 	for name in pairs(minetest.registered_items) do
 		if name:match(":steel_ingot") or name:match(":ingot_steel")
@@ -19,7 +19,7 @@ minetest.register_on_mods_loaded(function()
 		end
 	end
 end)
-
+--]]
 -- Local Utilities --
 
 local function correct_name(str)
